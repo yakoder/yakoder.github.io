@@ -1,0 +1,235 @@
+/*
+ * 725-infinity.css
+ */
+
+@media only screen and (min-width: 725px) {
+  section#pageheader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    width: 100%;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+  }
+  section#pageheader>header {
+    height: 42px;
+  }
+  section#pageheader>header .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50% - 20px);
+    height: 32px;
+    margin: 0;
+    padding: 5px 10px;
+  }
+  section#pageheader>header .sitetitle {
+  }
+  section#pageheader>header .contenttitle {
+  }
+  section#pageheader>header .contenttitle::before {
+    content: "/ ";
+  }
+  section#pageheader>header .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - 20px);
+    height: 20px;
+    margin: 0;
+    padding: 17px 10px 5px;
+  }
+  section#pageheader>header .tagline {
+  }
+  section#pageheader>nav#menu {
+    position: fixed;
+    top: 42px;
+    left: 0;
+    z-index: 30;
+    width: 100%;
+    height: calc(var(--text-font-size) + 12px + 2px);
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    position: absolute;
+    top: calc(32px + 10px + var(--text-font-size) + 12px + 2px);
+    left: 0;
+    width: 100%;
+    padding-bottom: calc(2.5em + 24px);
+  }
+  main>section>article {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 60ch;
+    margin: 2.5em 5ch;
+    padding: 5em 10ch;
+  }
+
+  article>section.text
+  , main p
+  , main h1
+  , main h2
+  , main h3
+  , main h4
+  , main h5
+  , main h6
+  {
+    margin-bottom: 1em;
+  }
+
+  main p:last-child
+  {
+    margin-bottom: 0;
+  }
+
+  article>footer {
+    margin-top: 1.5em;
+    padding-top: 0.5em;
+    width: 100%;
+  }
+  article>footer>div {
+    margin: 0; 
+    padding: 0; 
+  }
+  article>footer .timestamp {
+    margin: 0; 
+    padding: 0; 
+  }
+  article>footer .author {
+    margin: 0; 
+    padding: 0; 
+  }
+
+  article>header {
+    margin-bottom: 1em;
+  }
+  article>header>h1
+  , article>header>h2
+  {
+    margin-bottom: 0;
+  }
+  article>header>div {
+    margin: 0; 
+    padding: 0; 
+  }
+  article>header .timestamp {
+    margin: 0;
+    padding: 0 3em;
+  }
+  article>header .author {
+    margin: 0;
+    padding: 0 3em;
+  }
+  article img:not(.nocenter) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  img.icon32
+  , object.icon32
+  , svg.icon32
+  {
+    width: 32px;
+    height: 32px;
+  }
+
+  main ul
+  , main ol
+  {
+    padding-left: 2em;
+  }
+
+  main ul.dl
+  {
+    padding-left: 0;
+  }
+
+  main ul.dl li.dt ul:not(.dl)
+  {
+    padding-left: 1em;
+  }
+
+  main ul
+  , main ol
+  , main dl
+  , main ul.dl
+  {
+    margin: 0 0 1em;
+  }
+
+
+  main ul.dl ul.dl
+  {
+    margin: 0;
+  }
+
+  main dl dt
+  , main ul.dl li.dt
+  {
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+
+  main dl dd
+  , main ul.dl li.dd
+  {
+    margin-left: 2em;
+  }
+
+  main ul.dl li.dt ul:not(.dl) li:not(.dd)
+  {
+    margin-left: 0;
+  }
+
+  main ul.dl li.dt ul.dl li.dd
+  {
+    margin-left: 1em;
+  }
+
+  main blockquote {
+    margin: 0 2em 1em calc(2em - 10px - 2px);
+    padding: 1em;
+  }
+
+  main nav {
+    height: 30px;
+  }
+
+  section#pagefooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 1.66em;
+    margin: 0;
+    padding: 0;
+  }
+  section#pagefooter>footer {
+    height: 1.66em;
+  }
+  section#pagefooter>footer .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50% - 2.5em);
+    height: var(--footer-font-size);
+    margin: 0;
+    padding: 5px 10px;
+  }
+  section#pagefooter>footer .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - 2.5em);
+    height: var(--footer-font-size);
+    margin: 0;
+    padding: 5px 10px;
+  }
+}
+
+/* vim: set sw=2 ts=2 :*/

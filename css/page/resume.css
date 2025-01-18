@@ -1,0 +1,183 @@
+/*
+ * resume.css
+ */
+
+#resume {
+  --resume-text-font-size: 14px;
+  --resume-name-font-size: calc(var(--resume-text-font-size) * 2);
+  --resume-section-title-font-size: 16px;
+  --resume-header-height: calc(calc(var(--resume-name-font-size) * 1.5) + calc(var(--resume-text-font-size) * 1.5) + 1em);
+}
+
+main>section#resume>article>section.text {
+  font-family: var(--text-font, 'sans-serif'), sans-serif;
+  font-size: var(--resume-text-font-size);
+}
+main>section#resume>article>section.text>p:nth-child(1)>strong:nth-child(1) {
+  font-family: var(--header-font, 'serif'), serif;
+  font-size: var(--resume-name-font-size);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+main>section#resume>article>section.text>h2 {
+  font-family: var(--header-font, 'serif'), serif;
+  font-size: var(--resume-section-title-font-size);
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 3px;
+  border-bottom: 1px solid var(--fg-article);
+}
+main>section#resume>article>section.text>ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+main>section#resume>article>section.text>ul>li {
+}
+main>section#resume>article>section.text>ul:nth-child(6) {
+  padding-left: 1.5em;
+}
+main>section#resume>article>section.text>ul:nth-child(6)>li {
+  text-indent: -1.25em;
+}
+main>section#resume>article>section.text>ul:nth-child(6)>li>strong {
+}
+main>section#resume>article>section.text>ul:nth-child(6)>li>strong::before {
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  content: "\f0a3";
+  padding-right: 5px;
+}
+main>section#resume>article>section.text>ul:nth-child(8) {
+  padding-left: 1.5em;
+}
+main>section#resume>article>section.text>ul:nth-child(8)>li {
+  text-indent: -1.25em;
+}
+main>section#resume>article>section.text>ul:nth-child(8)>li>strong {
+}
+main>section#resume>article>section.text>ul:nth-child(8)>li>strong::before {
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  content: "\f501";
+  padding-right: 5px;
+}
+main>section#resume>article>section.text>ul>li>strong>em {
+  font-weight: bold;
+  font-style: italic;
+}
+main>section#resume>article>section.text>ul>li>em {
+}
+main>section#resume>article>section.text>ul>li>ul {
+  list-style-type: none;
+  padding-left: 3em;
+}
+main>section#resume>article>section.text>ul>li>ul>li {
+  margin-top: 0.5em;
+  text-indent: -1.75em;
+}
+main>section#resume>article>section.text>ul>li>ul>li>strong {
+}
+main>section#resume>article>section.text>ul>li>ul>li>strong::before {
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  content: "\f5fc";
+  padding-right: 5px;
+}
+main>section#resume>article>section.text>ul>li>ul>li>ul {
+  list-style-type: disc;
+  padding-left: 1em;
+}
+main>section#resume>article>section.text>ul>li>ul>li>ul>li {
+  line-height: 1.5em;
+  text-indent: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  main>section#resume>article>section.text>p:nth-child(1) {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+  }
+  main>section#resume>article>section.text>p:nth-child(2) {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: left;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 600px) {
+  main>section#resume>article>section.text>p:nth-child(1) {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+  }
+  main>section#resume>article>section.text>p:nth-child(2) {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: left;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 725px) {
+  main>section#resume>article {
+    padding-bottom: calc(5em + var(--resume-header-height));
+  }
+  main>section#resume>article>section.text {
+    position: relative;
+    top: var(--resume-header-height);
+  }
+  main>section#resume>article>section.text>p:nth-child(1) {
+    position: absolute;
+    top: calc(-1 * var(--resume-header-height));
+    left: 0;
+    width: calc(50% - 20px);
+    height: var(--resume-header-height);
+    margin: 0;
+    text-align: left;
+  }
+  main>section#resume>article>section.text>p:nth-child(2) {
+    position: absolute;
+    top: calc(-1 * var(--resume-header-height));
+    right: 0;
+    width: calc(50% - 20px);
+    height: var(--resume-header-height);
+    margin: 0;
+    text-align: right;
+  }
+}
+@media only screen and (min-width: 725px) {
+  main>section#resume>article {
+    padding-bottom: calc(5em + var(--resume-header-height));
+  }
+  main>section#resume>article>section.text {
+    position: relative;
+    top: var(--resume-header-height);
+  }
+  main>section#resume>article>section.text>p:nth-child(1) {
+    position: absolute;
+    top: calc(-1 * var(--resume-header-height));
+    left: 0;
+    width: calc(50% - 20px);
+    height: var(--resume-header-height);
+    margin: 0;
+    text-align: left;
+  }
+  main>section#resume>article>section.text>p:nth-child(2) {
+    position: absolute;
+    top: calc(-1 * var(--resume-header-height));
+    right: 0;
+    width: calc(50% - 20px);
+    height: var(--resume-header-height);
+    margin: 0;
+    text-align: right;
+  }
+}
+
+/* vim: set sw=2 ts=2 :*/

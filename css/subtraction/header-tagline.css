@@ -1,0 +1,12 @@
+/*
+ * subtraction/header-tagline.css
+ */
+
+body>header .left {
+  width: 100%;
+}
+body>header .right {
+  display:none;
+}
+
+/* vim: set sw=2 ts=2 :*/

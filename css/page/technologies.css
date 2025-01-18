@@ -1,0 +1,18 @@
+/*
+ * technologies.css
+ */
+
+main>section#page>article {
+}
+main>section#page>article>section.text {
+  font-family: var(--text-font, 'sans-serif'), sans-serif;
+  font-size: 14px;
+}
+main>section#page>article>section.text>h3 {
+  font-family: var(--header-font, 'serif'), serif;
+  font-size: var(--text-font-size);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* vim: set sw=2 ts=2 :*/
