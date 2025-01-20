@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="links">
+		<summary>
+			<h1>Other Sites</h1>
+		</summary>
+		<div>
+			<ul class="iconsWithLabels">
+				<li><a href="https://www.linkedin.com/in/yakoder/" title="LinkedIn"><img src="/img/linkedin.png" alt="LinkedIn" class="nocenter icon1em"/>LinkedIn</a></li>
+				<li><a href="https://github.com/yakoder-com" title="GitHub"><img src="/img/github.png" alt="GitHub" class="nocenter icon1em"/>GitHub</a></li>
+				<li><a href="https://gitlab.com/yakoder-com" title="GitLab"><img src="/img/gitlab.png" alt="GitLab" class="nocenter icon1em"/>GitLab</a></li>
+				<li><a href="https://bitbucket.org/yakoder-com/" title="Bitbucket"><img src="/img/bitbucket.png" alt="Bitbucket" class="nocenter icon1em"/>Bitbucket</a></li>
+				<li><a href="https://twitter.com/yakoder" title="Twitter"><img src="/img/twitter.png" alt="Twitter" class="nocenter icon1em"/>Twitter</a></li>
+				<li><a href="skype:live:jonwarren_6?chat" title="Skype"><object data="/img/skype.svg" type="image/svg+xml" class="nocenter icon1em"></object>Skype</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

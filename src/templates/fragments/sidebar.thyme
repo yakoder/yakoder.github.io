@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+        <!--/*
+        th:if="${page_sidebar == 'true' || config.site_sidebar == 'true'}"
+        */-->
+	<aside th:fragment="sidebar"
+        th:if="${show_sidebar}"
+        th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')
+        , cururi=(${current_uri} != null ? ${current_uri} : '')
+        , show_sidebar=(${show_sidebar == 'true'} ? 'true' : 'false')
+        , content_sidebar=(${show_sidebar && content_sidebar != null} ? ${content_sidebar} : '')
+        ">
+		[(${content_sidebar})]
+
+        <details open th:if="${config.site_sidebar_menu}">
+            <summary><h1>Menu</h1></summary>
+            <div th:include="fragments/dynamic_menu.thyme::menu (${cururi})"/>
+        </details>
+
+        <div class="details" th:include="fragments/links.thyme::links" th:if="${content.page_sidebar_links || config.site_sidebar_links}"/>
+
+        <details open th:if="${config.site_sidebar_pages_cat}" th:with="published_cats=${#sets.toSet({})}, uncat_pages=${{}}">
+            <summary><h1>Pages by Category</h1></summary>
+            <span th:each="p : ${published_pages}" th:unless="${#strings.isEmpty(p.cat)}" th:remove="all">[[${published_cats.add(p.cat)}]]</span>
+            <span th:each="p : ${published_pages}" th:if="${#strings.isEmpty(p.cat)}" th:remove="all">[[${uncat_pages.add(p)}]]</span>
+            <ul class="dl">
+                <li class="dt" th:each="c : ${#lists.sort(#lists.toList(published_cats))}" th:unless="${published_cats == null || #strings.isEmpty(c)}"><span>[[${#strings.capitalizeWords(c)}]]</span>
+                    <ul><li th:each="p : ${published_pages}" th:unless="${p == null || #strings.isEmpty(p.title) || p.cat != c}"><a class="smalltext" th:href="|${rootpath}${p.uri}|" href="#">[[${p.title}]]</a></li>
+                    </ul>
+                </li>
+                <li class="dt" th:unless="${#lists.isEmpty(uncat_pages)}">Uncategorized
+                    <ul><li th:each="p : ${uncat_pages}" th:unless="${p == null || #strings.isEmpty(p.title)}"><a th:href="|${rootpath}${p.uri}|" href="#">[[${p.title}]]</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </details>
+
+        <details open th:if="${config.site_sidebar_pages}">
+            <summary><h1>Pages</h1></summary>
+            <ul>
+                <li th:each="p : ${published_pages}" th:unless="${p == null || #strings.isEmpty(p.title)}"><a th:href="|${rootpath}${p.uri}|" href="#">[[${p.title}]]</a></li>
+            </ul>
+        </details>
+
+        <details open th:if="${config.site_sidebar_tags}">
+            <summary><h1>Tags</h1></summary>
+            <ul>
+                <li th:each="t : ${alltags}" th:unless="${#strings.isEmpty(t)}"><a th:href="|${rootpath}tags/${t}.html|" href="#">[[${t}]]</a></li>
+            </ul>
+        </details>
+
+        <details open th:if="${config.site_sidebar_draft_pages}">
+            <summary><h1>Draft Pages</h1></summary>
+            <ul>
+                <li th:each="c : ${all_content}" th:unless="${c == null || #strings.isEmpty(c.title) || #strings.toLowerCase(c.type) == 'post' || #strings.toLowerCase(c.status) != 'draft'}"><a th:href="|${rootpath}${#strings.replace(c.uri,config.output_extension,config.draft_suffix + config.output_extension)}|" href="#">[[${c.title}]]</a></li>
+            </ul>
+        </details>
+
+        <details open th:if="${config.site_sidebar_draft_posts}">
+            <summary><h1>Draft Posts</h1></summary>
+            <ul>
+                <li th:each="c : ${all_content}" th:unless="${c == null || #strings.isEmpty(c.title) || #strings.toLowerCase(c.type) == 'page' || #strings.toLowerCase(c.status) != 'draft'}"><a th:href="|${rootpath}${#strings.replace(c.uri,config.output_extension,config.draft_suffix + config.output_extension)}|" href="#">[[${c.title}]]</a></li>
+            </ul>
+        </details>
+
+        <div class="details" th:include="fragments/copyright.thyme::copyright" th:if="${config.site_sidebar_copyright}"/>
+
+        <details open class="debug" th:if="${config.site_debug == 'true'}"
+            th:insert="~{fragments/debug.thyme::debug (templateName=${execInfo.templateName},
+                templateMode=${execInfo.templateMode})}"/>
+        </details>
+    </aside>
+</body>
+</html>

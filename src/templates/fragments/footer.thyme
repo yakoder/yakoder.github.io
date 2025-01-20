@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <th:block th:fragment="footer" th:unless="${config.site_footer == 'false'}">
+        <footer>
+            <th:block th:if="${config.site_footer_contact == 'true' || config.site_footer_pagination == 'true'}">
+                <div class="left">
+                    <th:block th:if="${config.site_footer_contact && config.site_footer_pagination}">
+                        <div class="left" th:include="fragments/contact.thyme::contact"/>
+                        <div class="right" th:include="fragments/pagination.thyme::pagination"/>
+                    </th:block>
+                    <th:block th:if="${config.site_footer_contact && ! config.site_footer_pagination}">
+                        <span th:replace="fragments/contact.thyme::contact"/>
+                    </th:block>
+                    <th:block th:if="${! config.site_footer_contact && config.site_footer_pagination}">
+                        <span th:replace="fragments/pagination.thyme::pagination"/>
+                    </th:block>
+                </div>
+                <div class="right" th:include="fragments/copyright.thyme::copyright"/>
+            </th:block>
+            <th:block th:if="${! config.site_footer_contact && ! config.site_footer_pagination}">
+                <div class="left" th:include="fragments/copyright.thyme::copyright"/>
+                <th:block th:unless="${config.site_menu_page_disclaimer == 'false'}">
+                    <div class="right" th:with="linkuri=(|${rootpath}disclaimer.html|)">
+                        <a th:href="${linkuri}" th:class="(${#strings.equals(cururi, linkuri)} ? 'current' : '')">Disclaimer</a>
+                    </div>
+                <th:block>
+            </th:block>
+        </footer>
+    </th:block>
+</body>
+</html>

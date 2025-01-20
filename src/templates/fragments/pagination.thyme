@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="pagination">
+        <span th:unless="${config.site_pagination_numeric}">
+            <a th:href="${nextFileName}" th:if="${nextFileName}">&larr;Older</a>
+            <span th:if="${nextFileName != null || previousFileName != null}">&hellip;</span>
+            <a th:href="${previousFileName}" th:if="${previousFileName}">Newer&rarr;</a>
+        </span>
+        <span th:if="${config.site_pagination_numeric && config.index_file != null && config.output_extension != null && numberOfPages != null && numberOfPages > 0}" th:with="fileCurPgNum=(${currentPageNumber > 1} ? ${currentPageNumber} : ''), prevPgNum=(${currentPageNumber > 1} ? ${currentPageNumber - 1} : 1), nextPgNum=(${currentPageNumber < numberOfPages} ? ${currentPageNumber + 1} : ${numberOfPages})">
+            <span th:if="${currentPageNumber > 1}">
+                <a th:href="${#strings.replace(config.index_file, config.output_extension, ((prevPgNum > 1) ? prevPgNum : '') + config.output_extension)}">&larr;Prev</a>
+            </span>
+
+            <span th:each="i : ${#numbers.sequence(1, numberOfPages)}" th:with="fileCurPgNum=(${currentPageNumber > 1} ? ${currentPageNumber} : ''), filePgNum=(${i > 1} ? ${i} : '')">
+                <a th:href="${#strings.replace(config.index_file, config.output_extension, filePgNum + config.output_extension)}" th:class="(${currentPageNumber == i} ? 'current' : '')">[[${i}]]</a>
+            </span>
+
+            <span th:if="${currentPageNumber < numberOfPages}">
+                <a th:href="${#strings.replace(config.index_file, config.output_extension, ((nextPgNum > 1) ? nextPgNum : '') + config.output_extension)}">Next&rarr;</a>
+            </span>
+        </span>
+    </nav>
+</body>
+</html>

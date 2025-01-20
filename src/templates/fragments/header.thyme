@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
+    <header th:fragment="header">
+        <div class="left"
+            th:with="page_title=(${title != null} ? '|: ${title}|' : ''),
+            site_title=(${content.sitetitle != null}
+                ? ${content.sitetitle}
+                : (${config.site_title != null}
+                    ? ${config.site_title}
+                    : ''))"><span class="sitetitle"><a
+                            th:href="|${rootpath}index.html|">[(${site_title})][(${page_title})]</a></span>
+                    <span class="contenttitle">[(${content.title})]</span></div>
+        <div class="right"
+            th:with="tagline=(${content.site_tagline != null}
+                ? ${content.site_tagline}
+                : (${config.site_tagline_htmlhead != 'false' && config.site_tagline != null}
+                    ? ' &mdash; ' + ${config.site_tagline}
+                    : ${config.site_tagline}))"
+            th:unless="${config.site_tagline_header == 'false'}"><span class="tagline">[[${tagline}]]</span></div>
+    </header>
+</body>
+</html>

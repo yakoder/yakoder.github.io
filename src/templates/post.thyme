@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    th:with="show_sidebar=(${content.page_sidebar == 'true' || config.site_sidebar == 'true'} ? 'true' : 'false')
+     ">
+<head th:replace="fragments/htmlhead.thyme::head"/>
+<body th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : ''), current_uri=(|${rootpath}blog.html|)">
+    <section id="pageheader">
+        <header th:replace="fragments/header.thyme::header"/>
+        <nav th:replace="fragments/dynamic_menu.thyme::menu (${current_uri})" th:unless="${config.site_menu == 'false'}"/>
+    </section>
+
+    <main>
+        <section id="post">
+            <article>
+                <header>
+                    <h1>[(${content.title})]</h1>
+                    <div class="timestamp" th:unless="${content.notimestamp}"><time th:datetime="${#dates.format(content.date, 'yyyy-MM-dd HH:mm')}">[[${#dates.format(content.date,"dd MMM yyyy HH:mm")}]]</time></div>
+                    <div class="author" th:unless="${content.noauthor}" th:with="page_author=(${content.author != null} ? ${content.author} : (${config.site_owner_shown && config.site_owner != null} ? ${config.site_owner} : ''))">[[${page_author}]]</div>
+                </header>
+                <section th:class="(${#strings.length(content.body) < 512} ? 'text nocol' : 'text')" th:utext='${content.body}'/>
+            </article>
+        </section>
+    </main>
+
+    <aside th:replace="fragments/sidebar.thyme::sidebar (current_uri=${current_uri})"/>
+
+    <section id="pagefooter" th:insert="fragments/footer.thyme::footer"/>
+</body>
+</html>

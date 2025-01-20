@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="copyright">
+        <span class="copyright"><span class="nowrap copyrightyear"><i class="far fa-copyright"></i>&nbsp;Copyright
+            <time th:if="${config.site_copyright_originalYear}" th:datetime="${config.site_copyright_originalYear}">[[${config.site_copyright_originalYear}]]-</time><time th:datetime="${#dates.year(published_date)}">[[${#dates.year(published_date)}]]</time>[[${config.site_owner_shown ? '' : '.'}]]</span>
+        <span class="nowrap copyrightname" th:if="${config.site_owner_shown}">[[${config.site_owner}]].</span></span>
+        <span class="nowrap copyrightnotice">All Rights Reserved.</span>
+    </div>
+</body>
+</html>

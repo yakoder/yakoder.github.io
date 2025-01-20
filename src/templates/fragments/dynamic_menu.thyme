@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
+    <nav th:id="(${config.site_menu == 'false'} ? '' : 'menu')" th:fragment="menu (cururi)">
+        <th:block th:unless="${config.site_menu == 'false'}">
+            <ul th:class="menu">
+                <th:block th:unless="${#lists.isEmpty(published_pages)}">
+                    <th:block th:each="i : ${#numbers.sequence(0, #lists.size(published_pages) - 1)}">
+                        <th:block th:each="p : ${published_pages}">
+                            <th:block th:if="${i == p.order}">
+                                <li class="nowrap">
+                                    <a href="#"
+                                       th:href="|${rootpath}${p.uri}|"
+                                       th:class="(${#strings.equals(content.uri, p.uri)} ? 'current' : '')">
+                                        <!--/*
+                                        <th:block th:switch="${p.section}" th:if="${p.section != null}">
+                                            <i class="fas fa-home" th:case="'homepage'"></i>
+                                            <i class="fas fa-info-circle" th:case="'technologies'"></i>
+                                            <i class="fas fa-file" th:case="'resume'"></i>
+                                        </th:block>
+                                        */-->
+                                        [(${p.title})]
+                                    </a></li>
+                            </th:block>
+                        </th:block>
+                    </th:block>
+                </th:block>
+                <!--/*
+                <li class="nowrap"><i class="fas fa-address-card"></i> Contact</li>
+                */-->
+                <li><a href="https://www.linkedin.com/in/yakoder/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <!--/*
+                <li><a href="https://github.com/yakoder" title="GitHub"><i class="fab fa-github"></i></a>
+                <li><a href="https://gitlab.com/yakoder" title="GitLab"><i class="fab fa-gitlab"></i></a>
+                <li><a href="https://bitbucket.org/yakoder/" title="Bitbucket"><i class="fab fa-bitbucket"></i></a>
+                */-->
+            </ul>
+        </th:block>
+    </nav>
+</body>
+</html>

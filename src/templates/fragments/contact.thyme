@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <span class="nowrap contact" th:fragment="contact"></span>
+</body>
+</html>

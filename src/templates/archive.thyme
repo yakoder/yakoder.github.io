@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    th:with="title=('Archive'),
+             show_sidebar=(${content.page_sidebar == 'true' || config.site_sidebar == 'true'} ? 'true' : 'false')
+     ">
+<head th:replace="fragments/htmlhead.thyme::head (title=${title})"/>
+<body th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : ''), current_uri=(|${rootpath}archive.html|)">
+    <section id="pageheader">
+        <header th:replace="fragments/header.thyme::header (title=null)"/>
+        <nav th:replace="fragments/dynamic_menu.thyme::menu (${current_uri})" th:unless="${config.site_menu == 'false'}"/>
+    </section>
+
+    <main>
+        <section id="archive">
+            <article>
+                <header style="display:none!important;">
+                    <h1>[[${title}]]</h1>
+                </header>
+                <section class="text">
+                    <ul class="dl" th:each="post : ${posts}">
+                        <li class="dt" th:if="${#strings.toLowerCase(post.status) == 'published'}"><a th:href="|${rootpath}${post.uri}|">[[${post.title}]]</li>
+                            <ul class="dl smalltext">
+                                <li class="dd" th:unless="${content.notimestamp}"><time th:datetime="${#dates.format(post.date, 'yyyy-MM-dd HH:mm')}">[[${#dates.format(post.date, 'dd MMM yyyy HH:mm')}]]</time></li>
+                                <li class="dd" th:unless="${content.noauthor}" th:with="post_author=(${post.author != null} ? ${post.author} : (${config.site_owner_shown && config.site_owner != null} ? ${config.site_owner} : ''))">[[${post_author}]]</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <aside th:replace="fragments/sidebar.thyme::sidebar" (current_uri=${current_uri})/>
+
+    <section id="pagefooter" th:insert="fragments/footer.thyme::footer"/>
+</body>
+</html>

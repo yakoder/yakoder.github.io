@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    th:with="page_num=(${currentPageNumber != null} ? '| [page ${currentPageNumber}]|' : ''),
+             title=null,
+             show_sidebar=(${content.page_sidebar == 'true' || config.site_sidebar == 'true'} ? 'true' : 'false')
+    ">
+<head th:replace="fragments/htmlhead.thyme::head (title=${title})"/>
+<body th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : ''), current_uri=(|${rootpath}blog.html|)">
+    <section id="pageheader">
+        <header th:replace="fragments/header.thyme::header (title=${title})"/>
+        <nav th:replace="fragments/dynamic_menu.thyme::menu (${current_uri})" th:unless="${config.site_menu == 'false'}"/>
+    </section>
+
+    <main>
+        <section id="entries">
+            <article th:each="post : ${published_posts}">
+                <header>
+                    <h1><a th:with="post_title=${post.title}" th:href="${post.uri}" href="href">[[${post_title}]]</a></h1>
+                    <div class="timestamp" th:unless="${content.notimestamp}">Posted
+                        on <time th:datetime="${#dates.format(post.date, 'yyyy-MM-dd')}">[[${#dates.format(post.date,"dd MMM yyyy")}]]</time></div>
+                        at <time th:datetime="${#dates.format(post.date, 'HH:mm')}">[[${#dates.format(post.date,"HH:mm")}]]</time></div>
+                    <div class="author" th:unless="${content.noauthor}" th:with="post_author=(${post.author != null} ? ${post.author} : (${config.site_owner_shown && config.site_owner != null} ? ${config.site_owner} : ''))">Posted by [[${post_author}]]</div>
+                </header>
+                <section class="text" th:utext="${post.body}"/>
+            </article>
+        </section>
+        <nav th:replace="fragments/pagination.thyme::pagination"/>
+    </main>
+
+    <aside th:replace="fragments/sidebar.thyme::sidebar (current_uri=${current_uri})"/>
+
+    <section id="pagefooter" th:insert="fragments/footer.thyme::footer"/>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    th:with="show_sidebar=(${content.page_sidebar == 'true' || config.site_sidebar == 'true'} ? 'true' : 'false')
+     ">
+<head th:replace="fragments/htmlhead.thyme::head"/>
+<body th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : ''), current_uri=(${content.uri})">
+    <section id="pageheader">
+        <header th:replace="fragments/header.thyme::header"/>
+        <nav th:replace="fragments/dynamic_menu.thyme::menu (${current_uri})" th:unless="${config.site_menu == 'false'}"/>
+    </section>
+
+    <main>
+        <section id="list">
+            <article>
+                <header>
+					<p>[(${content.subtitle})]</p>
+                </header>
+                <th:block th:if="${content.body != null && #strings.length(content.body) > 24}">
+                    <th:block th:with="start=(${#strings.substring(content.body, 0, 24)}), end=(${#strings.substring(content.body, #strings.length(content.body) - 11, #strings.length(content.body) - 1)})">
+                        <th:block th:if="${#strings.startsWith(start, '<section class=') && #strings.contains(start, 'addcol') && end == '</section>'}">
+                            <th:block th:utext="${content.body}"/>
+                        </th:block>
+                        <th:block th:unless="${#strings.startsWith(start, '<section class=') && #strings.contains(start, 'addcol') && end == '</section>'}">
+                            <section th:class="(${#strings.length(content.body) < 512} ? 'text nocol' : 'text')" th:utext="${content.body}"/>
+                        </th:block>
+                    </th:block>
+                </th:block>
+                <footer>
+                    <div class="author" th:unless="${content.noauthor}" th:with="page_author=(${content.author != null} ? ${content.author} : (${config.site_owner_shown && config.site_owner != null} ? ${config.site_owner} : ''))">Posted by [[${page_author}]]</div>
+                    <div class="timestamp" th:unless="${content.notimestamp}">Posted
+						on <time th:datetime="${#dates.format(content.date, 'yyyy-MM-dd')}">[[${#dates.format(content.date,"dd MMM yyyy")}]]</time>
+						at <time th:datetime="${#dates.format(content.date, 'HH:mm')}">[[${#dates.format(content.date,"HH:mm")}]]</time></div>
+                </footer>
+            </article>
+            <article class="debug" th:if="${config.site_debug == 'true'}">
+                <section class="text nocol" th:insert="~{fragments/debug.thyme::debug (templateName=${execInfo.templateName},
+                        templateMode=${execInfo.templateMode})}"/>
+            </article>
+        </section>
+    </main>
+
+    <aside th:replace="fragments/sidebar.thyme::sidebar (current_uri=${current_uri})"/>
+
+    <section id="pagefooter" th:insert="fragments/footer.thyme::footer"/>
+</body>
+</html>

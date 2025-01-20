@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')">
+        <th:block th:fragment="debug">
+            <h2>Debug</h2>
+            execInfo.templateName=[(${templateName})]<br/>
+            execInfo.templateMode=[(${templateMode})]<br/>
+            content.type=[(${content.type})]<br/>
+            config.site_sidebar=[(${config.site_sidebar})]<br/>
+            content.page_sidebar=[(${content.page_sidebar})]<br/>
+            show_sidebar=[(${show_sidebar})]<br/>
+            content.page_sidebar_links=[(${content.page_sidebar_links})]<br/>
+            1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 <strong style="background-color:red!important;color:white!important;">5</strong> 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 1 3 5 7 9 <br/>
+            config.site_menu=[(${config.site_menu})]<br/>
+            config.site_menu_submenu_about=[(${config.site_menu_submenu_about})]<br/>
+            config.site_menu_submenu_about_tech=[(${config.site_menu_submenu_about_tech})]<br/>
+            config.site_menu_submenu_blog=[(${config.site_menu_submenu_blog})]<br/>
+            config.site_menu_submenu_blog_archive=[(${config.site_menu_submenu_blog_archive})]<br/>
+            config.site_menu_submenu_pages=[(${config.site_menu_submenu_pages})]<br/>
+            config.site_menu_submenu_tags=[(${config.site_menu_submenu_tags})]<br/>
+            config.site_menu_page_about=[(${config.site_menu_page_about})]<br/>
+            config.site_menu_page_tech=[(${config.site_menu_page_tech})]<br/>
+            config.site_menu_page_disclaimer=[(${config.site_menu_page_disclaimer})]<br/>
+            config.site_menu_page_blog=[(${config.site_menu_page_blog})]<br/>
+            config.site_menu_page_archive=[(${config.site_menu_page_archive})]<br/>
+            config.site_menu_page_resume=[(${config.site_menu_page_resume})]<br/>
+            config.site_menu_page_contact=[(${config.site_menu_page_contact})]<br/>
+            config.site_sidebar=[(${config.site_sidebar})]<br/>
+            config.site_sidebar_menu=[(${config.site_sidebar_menu})]<br/>
+            config.site_sidebar_pages_cat=[(${config.site_sidebar_pages_cat})]<br/>
+            config.site_sidebar_pages=[(${config.site_sidebar_pages})]<br/>
+            config.site_sidebar_tags=[(${config.site_sidebar_tags})]<br/>
+            config.site_sidebar_copyright=[(${config.site_sidebar_copyright})]<br/>
+            config.site_sidebar_draft_pages=[(${config.site_sidebar_draft_pages})]<br/>
+            config.site_sidebar_draft_posts=[(${config.site_sidebar_draft_posts})]<br/>
+            config.site_sidebar_links=[(${config.site_sidebar_links})]<br/>
+            config.site_footer=[(${config.site_footer})]<br/>
+            config.site_footer_contact=[(${config.site_footer_contact})]<br/>
+            config.site_footer_pagination=[(${config.site_footer_pagination})]<br/>
+            config.site_pagination_numeric=[(${config.site_pagination_numeric})]<br/>
+        </th:block>
+</body>
+</html>
