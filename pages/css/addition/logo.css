@@ -1,0 +1,10 @@
+/*
+ * logo.css
+ */
+body>header .left a::before {
+  content: url('../ico/favicon-32x32.png');
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* vim: set sw=2 ts=2 :*/

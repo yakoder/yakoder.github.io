@@ -1,0 +1,223 @@
+/*
+ * 480-600.css
+ */
+
+@media only screen and (min-width: 480px) and (max-width: 600px) {
+  section#pageheader {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  section#pageheader>header {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  section#pageheader>header .left {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+  }
+  section#pageheader>header .sitetitle {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  section#pageheader>header .contenttitle {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  section#pageheader>header .contenttitle::before {
+    content: "";
+  }
+  section#pageheader>header .right {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: left;
+  }
+  section#pageheader>header .tagline {
+  }
+  section#pageheader>nav#menu {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 100%;
+  }
+  main>section>article {
+    max-width: 60ch;
+    margin: 1em 2ch;
+    padding: 2em 2ch;
+  }
+
+  article>section.text
+  , main p
+  , main h1
+  , main h2
+  , main h3
+  , main h4
+  , main h5
+  , main h6
+  {
+    margin-bottom: 1em;
+  }
+
+  main p:last-child
+  {
+    margin-bottom: 0;
+  }
+
+  article>footer {
+    margin-top: 1.5em;
+    padding-top: 0.5em;
+    width: 100%;
+  }
+  article>footer>div {
+    margin: 0; 
+    padding: 0; 
+  }
+  article>footer .timestamp {
+    margin: 0; 
+    padding: 0; 
+  }
+  article>footer .author {
+    margin: 0; 
+    padding: 0; 
+  }
+
+  article>header {
+    margin-bottom: 1em;
+  }
+  article>header>h1
+  , article>header>h2
+  {
+    margin-bottom: 0;
+  }
+  article>header>div {
+    margin: 0; 
+    padding: 0; 
+  }
+  article>header .timestamp {
+    margin: 0;
+    padding: 0 3em;
+  }
+  article>header .author {
+    margin: 0;
+    padding: 0 3em;
+  }
+  article img:not(.nocenter) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  img.icon32
+  , object.icon32
+  , svg.icon32
+  {
+    width: 32px;
+    height: 32px;
+  }
+
+  main ul
+  , main ol
+  {
+    padding-left: 2em;
+  }
+
+  main ul.dl
+  {
+    padding-left: 0;
+  }
+
+  main ul.dl li.dt ul:not(.dl)
+  {
+    padding-left: 1em;
+  }
+
+  main ul
+  , main ol
+  , main dl
+  , main ul.dl
+  {
+    margin: 0 0 1em;
+  }
+
+
+  main ul.dl ul.dl
+  {
+    margin: 0;
+  }
+
+  main dl dt
+  , main ul.dl li.dt
+  {
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+
+  main dl dd
+  , main ul.dl li.dd
+  {
+    margin-left: 2em;
+  }
+
+  main ul.dl li.dt ul:not(.dl) li:not(.dd)
+  {
+    margin-left: 0;
+  }
+
+  main ul.dl li.dt ul.dl li.dd
+  {
+    margin-left: 1em;
+  }
+
+  main blockquote {
+    margin: 0 2em 1em 2em;
+    padding: 1em;
+  }
+
+  main nav {
+    height: auto;
+  }
+
+  section#pagefooter {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  section#pagefooter>footer {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  section#pagefooter>footer .left {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+  }
+  section#pagefooter>footer .right {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: left;
+  }
+}
+
+/* vim: set sw=2 ts=2 :*/

@@ -1,0 +1,158 @@
+/**
+ * Based on code from:
+ *   https://medialoot.com/blog/how-to-create-a-responsive-navigation-menu-using-only-css/
+ *   https://codepen.io/andornagy/pen/RNeydj
+ */
+nav#menu .menu_toggle
+, nav#menu [id^=drop]
+{
+  display: none;
+}
+
+nav#menu:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+nav#menu li {
+  float: left;
+  display: inline-block;
+}
+nav#menu ul li.current a { font-weight: bold; }
+
+nav#menu li a { display: inline-block; }
+nav#menu li a {
+  display: block;
+  height: calc(18px + 12px);
+  line-height: 18px;
+  padding: 6px 10px;
+  font-size: 18px;
+
+  text-decoration: none;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+nav#menu ul li:hover .menu_toggle + a[href] { cursor: pointer; }
+nav#menu ul li:hover .menu_toggle + a:not([href]),
+nav#menu ul li:hover .menu_toggle + a[href=""],
+nav#menu ul li:hover .menu_toggle + a[href="#"] { cursor: default; }
+
+nav#menu>ul>li>ul {
+  display: none;
+  position: absolute;
+  top: calc(18px + 12px);
+}
+
+nav#menu>ul>li>ul>li>ul {
+  display: none;
+  position: absolute;
+  top: calc(18px + 12px);
+}
+
+nav#menu ul li:hover > ul {
+  display: inherit;
+}
+
+nav#menu ul ul li {
+  width: 170px;
+  float: none;
+  display: list-item;
+  position: relative;
+}
+
+nav#menu ul ul ul li {
+  position: relative;
+  top: calc(-18px - 12px);
+  left: 170px;
+}
+
+nav#menu li > a:after { content:  '\2026'; }
+nav#menu li > a:only-child:after { content: ''; }
+
+/*
+@media all and (max-width : 768px) {
+  nav#menu {
+    margin: 0;
+  }
+
+  nav#menu .menu_toggle + a
+  , nav#menu .menu
+  {
+    display: none;
+  }
+
+  nav#menu .menu_toggle {
+    display: block;
+    height: calc(18px + 12px);
+    line-height: 18px;
+    padding: 6px 10px;
+    font-size: 18px;
+
+    text-decoration: none;
+  }
+  nav#menu label.menu_toggle:after { content:  '\2026'; }
+
+  nav#menu [id^=drop]:checked + ul {
+    display: block;
+  }
+
+  nav#menu ul li {
+    display: block;
+    width: 100%;
+  }
+
+  nav#menu ul li:hover a { cursor: pointer; }
+
+  nav#menu ul ul .menu_toggle,
+  nav#menu ul ul a {
+    width: 170px;
+  }
+
+  nav#menu ul ul ul a {
+  }
+
+  nav#menu ul li ul li .menu_toggle,
+  nav#menu ul ul a,
+  nav#menu ul ul ul a {
+  }
+
+  nav#menu ul ul {
+    float: none;
+    position: static;
+  }
+
+  nav#menu ul ul li:hover > ul,
+  nav#menu ul li:hover > ul {
+    display: none;
+  }
+
+  nav#menu ul ul li {
+    display: block;
+    width: 100%;
+  }
+
+  nav#menu ul ul ul li {
+    position: static;
+  }
+}
+
+@media all and (max-width : 330px) {
+  nav#menu ul li {
+    display: block;
+    width: 94%;
+  }
+}
+*/
+
+/* vim: set sw=2 ts=2 :*/

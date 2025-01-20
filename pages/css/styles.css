@@ -1,0 +1,327 @@
+/*
+ * styles.css
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Bellota');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+:root {
+  --text-font: 'Comfortaa';
+  --text-font-size: 18px;
+  --text-font-weight: normal;
+
+  --header-font: 'Bellota';
+  --header-font-size: 32px;
+  --header-letter-spacing: 0.02em;
+  --header-font-weight: bold;
+
+  --menu-font: var(--text-font, 'Comfortaa');
+  --menu-font-size: var(--text-font-size, '18px');
+  --menu-font-weight: var(--text-font-weight, 'normal');
+
+  --footer-font: var(--text-font, 'Comfortaa');
+  --footer-font-size: 14px;
+  --footer-font-weight: var(--text-font-weight, 'normal');
+  --footer-letter-spacing: 0.01em;
+}
+
+html
+, body
+{
+  font-family: var(--text-font, 'sans-serif'), sans-serif;
+  font-size: var(--text-font-size, '18px');
+  font-weight: var(--text-font-weight, 'normal');
+  letter-spacing: var(--text-letter-spacing, 'normal');
+}
+
+code {
+  font-family: 'Inconsolata', monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1
+, h2
+, h3
+, h4
+, h5
+, h6
+, section#pageheader>header
+{
+  font-family: var(--header-font, 'serif'), serif;
+  font-weight: var(--header-font-weight, 'bold');
+  letter-spacing: var(--header-letter-spacing, 'normal');
+}
+
+b
+, strong
+{
+  font-weight: bold;
+}
+
+i
+, em {
+  font-style: italic;
+  letter-spacing: -0.02em;
+  word-spacing: 0.1em;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+section#pageheader>header .left {
+  text-align: left;
+}
+section#pageheader>header .sitetitle {
+  line-height: 32px;
+  font-size: 32px;
+}
+section#pageheader>header .contenttitle {
+  line-height: calc(32px * 0.8);
+  font-size: calc(32px * 0.8);
+}
+/* section#pageheader>header .right { */
+section#pageheader>header .right {
+  text-align: right;
+}
+section#pageheader>header .tagline {
+  font-size: 20px;
+}
+section#pageheader>nav#menu {
+  font-size: var(--text-font-size);
+  text-align: left;
+
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+section#pageheader>nav#menu input[type=radio]
+, section#pageheader>nav#menu input[type=checkbox]
+{
+  display: none;
+}
+main>section>article
+/* main>section#entries article */
+/* , main>section#post article */
+/* , main>section#page article */
+/* , main>section#homepage article */
+/* , main>section#list article */
+/* , main>section#archive article */
+/* , main>section#tag article */
+{
+  display: inline-block;
+
+  font-size: var(--text-font-size);
+}
+
+article>section.text
+, main p
+, main h1
+, main h2
+, main h3
+, main h4
+, main h5
+, main h6
+{
+  line-height: 1.5em;
+}
+
+article>section.text dt
+, article>section.text li.dt
+, article>section.text h1
+, article>section.text h2
+, article>section.text h3
+, article>section.text h4
+, article>section.text h5
+, article>section.text h6
+{
+  text-align: left;
+  line-height: 1.1em;
+}
+
+article>section.text ul
+, article>section.text ol
+, article>section.text dl
+{
+  text-align: left;
+}
+
+main h1 {
+  font-size: 1.5em;
+}
+main h2 {
+  font-size: 1.4em;
+}
+main h3 {
+  font-size: 1.3em;
+}
+main h4 {
+  font-size: 1.2em;
+}
+main h5 {
+  font-size: 1.1em;
+}
+main h6 {
+  font-size: 1em;
+}
+
+/* todo: reposition below */
+/* TODO: figure out what the other 'todo' means */
+article>footer {
+  font-size: var(--footer-font-size);
+  line-height: var(--text-font-size);
+  font-style: italic;
+}
+article>footer .timestamp {
+  text-align: right;
+}
+article>footer .author {
+  text-align: right;
+}
+
+article>header>h1
+, article>header>h2
+{
+  line-height: 1em;
+}
+article .smalltext
+, body aside .smalltext
+{
+  line-height: 14px;
+  font-size: 14px;
+}
+article img:not(.nocenter) {
+  display: block;
+}
+a.icon {
+  text-decoration: none;
+}
+span.icon32 {
+  font-size: 32px;
+}
+img.icon32
+, object.icon32
+, svg.icon32
+{
+  vertical-align: top;
+}
+
+main ul
+, main ol
+, main dl
+, main dl dt
+, main dl dd
+, body aside ul
+, body aside ol
+, body aside dl
+, body aside dl dt
+, body aside dl dd
+{
+  display: block;
+}
+
+/*
+main ul
+, body aside ul
+{
+  list-style-type: disc;
+}
+*/
+
+main ul.dl
+, body aside ul.dl
+{
+  list-style-type: none;
+}
+
+/*
+main ol
+, body aside ol
+{
+  list-style-type: decimal;
+}
+*/
+
+main ul li
+, main ol li
+, body aside ul li
+, body aside ol li
+{
+  display: list-item;
+  line-height: 1.2em;
+}
+
+main ul.dl li.dd
+, body aside ul.dl li.dd
+{
+  display: block;
+}
+
+main dl dt
+, main ul.dl li.dt
+, body aside dl dt
+, body aside ul.dl li.dt
+{
+  font-weight: 700;
+}
+
+main ul.dl li.dd
+, body aside ul.dl li.dd
+{
+  font-weight: normal;
+}
+
+main dl dd
+, main ul.dl li.dd
+, body aside dl dd
+, body aside ul.dl li.dd
+{
+  font-style: italic;
+}
+
+main ul.dl li.dt ul:not(.dl) li:not(.dd)
+, body aside ul.dl li.dt ul:not(.dl) li:not(.dd)
+{
+  font-style: normal;
+}
+
+main ul.dl li.dt ul.dl li.dd
+, body aside ul.dl li.dt ul.dl li.dd
+{
+  font-style: italic;
+}
+
+main ul.dl li.dt {
+  display: inline-block;
+}
+
+main nav {
+  line-height: 16px;
+  font-size: 16px;
+  text-align: center;
+}
+
+section#pagefooter>footer {
+  font-family: var(--footer-font, 'serif'), serif;
+  font-size: var(--footer-font-size, '1em');
+  font-weight: var(--footer-font-weight, 'normal');
+  letter-spacing: var(--footer-letter-spacing, 'normal');
+
+  border: 0;
+}
+section#pagefooter>footer .left {
+  line-height: var(--footer-font-size);
+  font-size: var(--footer-font-size);
+  text-align: left;
+}
+section#pagefooter>footer .right {
+  line-height: var(--footer-font-size);
+  font-size: var(--footer-font-size);
+  text-align: right;
+}
+
+/* vim: set sw=2 ts=2 :*/
