@@ -12,8 +12,8 @@ order=2
 Chicago, Illinois
 
 ##EXPERIENCE
-+ **Systems Software Developer 3 (06/2022 – 05/2023)**
-Key Technologies: JavaSE, Spring, C#, Yaml
++ **Systems Software Developer 3 (06/2022 – 05/2023)**  
+Key Technologies: JavaSE, Spring, C#, Yaml  
     - _Kemper Corporation, Chicago, Illinois_
         * Added features to existing software to provide new business required functionality to support other teams
         * Junior Developer in all aspects of her various projects
