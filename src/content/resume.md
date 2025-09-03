@@ -12,6 +12,14 @@ order=2
 Chicago, Illinois
 
 ##EXPERIENCE
++ **Systems Software Developer 3 (06/2022 – 05/2023)**
+Key Technologies: JavaSE, Spring, C#, Yaml
+    - _Kemper Corporation, Chicago, Illinois_
+        * Added features to existing software to provide new business required functionality to support other teams
+        * Junior Developer in all aspects of her various projects
+        * over and above on improving the project to better align with the quality standards set to be implemented the following quarter
+        * took over and completed a high-priority project in very short time
+
 + **Senior Java Software Engineer (01/2018 – 10/2019)**  
 Key Technologies: JavaSE, PL/SQL, SQL, Camel, Spring, REST, jUnit  
     - _StudentScout, a division of TrueBlue, Chicago, Illinois_
